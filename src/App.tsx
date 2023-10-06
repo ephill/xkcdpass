@@ -1,31 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { fetchWord } from "./fetchWord";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [words, setWords] = useState<string[]>();
+
+  useEffect(() => {
+    Promise.all([fetchWord(), fetchWord(), fetchWord(), fetchWord()]).then(
+      (words) => {
+        setWords(words);
+      }
+    );
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className="text-2xl font-bold underline">ABCDEFGHIJK</p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="bg-neutral-50 px-6 py-20 text-center text-neutral-800 grow flex flex-col items-center dark:bg-neutral-700 dark:text-neutral-200">
+        <h1 className="mb-4 text-4xl font-bold">xkcdpassword.app</h1>
+        <h3 className="mb-6 text-2xl font-bold">
+          Inspired by{" "}
+          <a
+            className="underline text-blue-400 hover:text-blue-600"
+            href="https://xkcd.com/936/"
+            target="_blank"
+            rel="noopener"
+          >
+            xkcd
+          </a>
+          .
+        </h3>
+        {words && (
+          <p className="font-mono text-xl mb-4 border-2 border-black w-max px-4 py-2 rounded-md bg-white dark:bg-black">
+            {words.join(" ")}
+          </p>
+        )}
+      </main>
+      <footer className="relative shadow-lg bg-neutral-50 flex items-center justify-center dark:bg-neutral-700 dark:text-neutral-200">
+        <p className="text-xs font-mono">
+          Refresh for a new password. Made by{" "}
+          <a
+            className="underline text-blue-400 hover:text-blue-600"
+            href="https://github.com/ephill"
+            target="_blank"
+            rel="noopener"
+          >
+            @ephill
+          </a>
+          .
+        </p>
+      </footer>
     </>
   );
 }
