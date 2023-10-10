@@ -30,7 +30,7 @@ function App() {
           .
         </h3>
         {words && (
-          <p className="font-mono text-xl mb-4 border-2 border-black w-max px-4 py-2 rounded-md bg-white dark:bg-black">
+          <p className="font-mono text-xl mb-4 border-2 border-black w-max px-4 py-2 rounded-md bg-white dark:bg-black max-w-full">
             {words.join(" ")}
           </p>
         )}
