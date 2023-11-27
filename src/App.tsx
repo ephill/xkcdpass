@@ -22,7 +22,7 @@ function App() {
     <>
       <main className="bg-neutral-50 px-6 py-20 text-center text-neutral-800 grow flex flex-col items-center dark:bg-neutral-700 dark:text-neutral-200">
         <h1 className="mb-4 text-4xl font-bold">xkcdpassword.app</h1>
-        <h3 className="mb-6 text-lg font-bold">Refresh for a new password.</h3>
+        <h2 className="mb-6 text-lg font-bold">Refresh for a new password.</h2>
         {words && (
           <div className="font-mono text-xl mb-4 border-2 border-black py-1 rounded-md bg-white dark:bg-black max-w-full flex flex-row items-center justify-center">
             <p className="grow border-r border-neutral-700 dark:border-neutral-200 px-3">
@@ -50,7 +50,7 @@ function App() {
         <p className="text-xs font-mono">
           Made by{" "}
           <a
-            className="underline text-blue-400 hover:text-blue-600"
+            className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600"
             href="https://github.com/ephill"
             target="_blank"
             rel="noopener"
@@ -59,7 +59,7 @@ function App() {
           </a>
           . Inspired by{" "}
           <a
-            className="underline text-blue-400 hover:text-blue-600"
+            className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600"
             href="https://xkcd.com/936/"
             target="_blank"
             rel="noopener"
